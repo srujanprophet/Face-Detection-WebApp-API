@@ -11,7 +11,7 @@ const image = require('./controllers/image')
 const db = require('knex')({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
+    host : 'postgresql-graceful-76814',
     user : 'sruji',
     password : '',
     database : 'cerebro-faciem'
