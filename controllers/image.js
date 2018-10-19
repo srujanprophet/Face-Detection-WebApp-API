@@ -8,7 +8,12 @@ const handleApiCall = (req,res) => {
 	app.models  
       .predict(Clarifai.FACE_DETECT_MODEL,req.body.input)
       .then(data => {
-      	res.json(data);
+      	const obj = data.outputs[0].data;
+       if(Object.keys(obj).length === 0 && obj.constructor === Object) {
+               res.json("Nil");
+       } else {
+               res.json(data);
+       }
       })
      .catch(err => res.status(400).json(err))
 }
